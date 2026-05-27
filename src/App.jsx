@@ -23,6 +23,17 @@ function App() {
     if (loading) return;
 
     const ctx = gsap.context(() => {
+      // Fade out scroll indicator on scroll
+      gsap.to('.scroll-indicator', {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.hero',
+          start: "top top",
+          end: "+=200",
+          scrub: true
+        }
+      });
+      
       // Fade up glass panels
       const panels = gsap.utils.toArray('.glass-panel');
       panels.forEach((panel) => {
@@ -125,10 +136,11 @@ function App() {
               </motion.div>
               
               <motion.div 
-                className="flex gap-6 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] flex-wrap mb-16"
+                className="flex gap-6 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] flex-wrap"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 3.4 }}
+                style={{ marginTop: '4rem' }}
               >
                 <span>SPF 50+</span>
                 <span className="text-[#C9A227]">|</span>
@@ -138,17 +150,18 @@ function App() {
                 <span className="text-[#C9A227]">|</span>
                 <span>Dermatologically Tested</span>
               </motion.div>
-
-              <motion.div 
-                className="mt-8 text-xs uppercase tracking-[0.3em] text-[#C9A227] flex items-center gap-3 pt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 3.8 }}
-              >
-                <span>Scroll to explore</span>
-                <span className="animate-bounce text-lg">↓</span>
-              </motion.div>
             </div>
+
+            {/* Scroll Indicator */}
+            <motion.div 
+              className="scroll-indicator absolute bottom-12 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-[#C9A227] flex flex-col items-center gap-3 z-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 3.8 }}
+            >
+              <span>Scroll to explore</span>
+              <span className="animate-bounce text-xl">↓</span>
+            </motion.div>
           </section>
 
           {/* SECTION 2 — PRODUCT STORY */}

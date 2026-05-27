@@ -330,7 +330,7 @@ function App() {
           </section>
           
           {/* FOOTER */}
-          <footer id="main-footer" className="w-full bg-[#030303] border-t border-white/5 pt-32 pb-16 px-10 z-[100] relative overflow-hidden flex flex-col items-center">
+          <footer id="main-footer" className="w-full bg-[#030303] border-t border-white/5 pt-48 pb-32 px-10 z-[100] relative overflow-hidden flex flex-col items-center min-h-[60vh] justify-end">
             {/* Massive background typography */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-hidden leading-none select-none pointer-events-none opacity-[0.03] flex items-center justify-center">
               <h1 className="text-[28vw] font-serif font-bold text-white whitespace-nowrap">SOLÉA</h1>

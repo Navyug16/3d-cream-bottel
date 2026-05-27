@@ -115,7 +115,7 @@ function App() {
               </motion.p>
               
               <motion.div 
-                className="flex gap-6 flex-wrap mb-12"
+                className="flex gap-6 flex-wrap mt-8 mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 3.1 }}
@@ -125,7 +125,7 @@ function App() {
               </motion.div>
               
               <motion.div 
-                className="flex gap-6 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] flex-wrap"
+                className="flex gap-6 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] flex-wrap mb-16"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 3.4 }}
@@ -140,7 +140,7 @@ function App() {
               </motion.div>
 
               <motion.div 
-                className="mt-16 text-xs uppercase tracking-[0.3em] text-[#C9A227] flex items-center gap-3"
+                className="mt-8 text-xs uppercase tracking-[0.3em] text-[#C9A227] flex items-center gap-3 pt-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 3.8 }}

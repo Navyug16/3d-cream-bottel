@@ -7,28 +7,40 @@ import { TubeCluster } from './TubeCluster';
 export function Scene() {
   return (
     <div className="canvas-container">
-      <Canvas shadows dpr={[1, 2]} gl={{ antialias: true }}>
+      <Canvas shadows dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={35} />
         
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
-        <directionalLight position={[-10, 10, -10]} intensity={0.5} />
+        {/* Dark Cinematic Lighting */}
+        <ambientLight intensity={0.2} color="#ffffff" />
+        
+        {/* Key light - Bright white for sharp reflections */}
+        <spotLight position={[10, 15, 10]} angle={0.2} penumbra={1} intensity={2.5} castShadow color="#ffffff" />
+        
+        {/* Fill light - Subtle gold/cream */}
+        <directionalLight position={[-10, 5, -10]} intensity={1.5} color="#C9A227" />
+        
+        {/* Ambient background glow - Gold */}
+        <pointLight position={[0, 0, -3]} intensity={3} color="#C9A227" distance={15} />
 
         <Suspense fallback={null}>
-          {/* Subtle floating particles for a premium atmosphere */}
-          <Sparkles count={150} scale={12} size={2} speed={0.4} opacity={0.3} color="#D11A2A" />
+          {/* Gold luxury particles */}
+          <Sparkles count={300} scale={15} size={2.5} speed={0.3} opacity={0.6} color="#C9A227" />
           
           <Bottle />
-          <TubeCluster />
+          
+          {/* We will hide TubeCluster or style it dark too, but let's just omit it for cleaner portfolio focus, or keep it dark */}
+          {/* <TubeCluster /> */}
           
           <Environment preset="city" />
           
+          {/* Sharp realistic shadow */}
           <ContactShadows 
             position={[0, -3.5, 0]} 
-            opacity={0.4} 
+            opacity={0.8} 
             scale={20} 
-            blur={2} 
-            far={4.5} 
+            blur={1.5} 
+            far={4.5}
+            color="#000000"
           />
         </Suspense>
       </Canvas>

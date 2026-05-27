@@ -74,77 +74,79 @@ function App() {
       <div className="noise-overlay" />
       
       {/* Announcement Bar */}
-      <div className="w-full bg-[#111111] border-b border-white/5 text-center py-2 text-sm text-[#C9A227] uppercase tracking-wider fixed top-0 z-50">
-        Free Shipping on All Orders Above ₹999
+      <div className="fixed top-0 left-0 w-full bg-[#050505] border-b border-white/5 py-3 z-50 flex items-center justify-center">
+        <span className="text-xs md:text-sm text-[#C9A227] uppercase tracking-[0.2em] font-medium text-center w-full">
+          Free Shipping on All Orders Above ₹999
+        </span>
       </div>
       
-      <div className="app-container pt-10" ref={appRef}>
+      <div className="app-container pt-12" ref={appRef}>
         <Scene />
         <div className="ambient-glow" />
 
         <main className="scroll-content">
           {/* SECTION 1 — HERO */}
-          <section className="section hero min-h-screen">
-            <div className="content glass-panel max-w-2xl">
+          <section className="section hero min-h-screen relative flex items-center pt-20">
+            <div className="content max-w-3xl z-10">
               <motion.h1 
-                className="text-5xl md:text-7xl mb-4 leading-tight font-serif"
-                initial={{ opacity: 0, y: 30 }}
+                className="text-6xl md:text-8xl mb-8 leading-[1.1] font-serif tracking-tight"
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 2.2 }}
+                transition={{ duration: 1.2, delay: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 The Future of <br/>
                 <span className="text-gradient">Daily Sun Care</span>
               </motion.h1>
               <motion.p 
-                className="text-xl text-[#C9A227] mb-4 font-medium"
+                className="text-2xl text-[#C9A227] mb-6 font-serif italic"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 2.4 }}
+                transition={{ duration: 1, delay: 2.6 }}
               >
                 A lightweight SPF 50+ sunscreen designed to protect, hydrate, and glow with every application.
               </motion.p>
               <motion.p 
-                className="text-lg text-gray-300 mb-8"
+                className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 2.5 }}
+                transition={{ duration: 1, delay: 2.8 }}
               >
                 Created for modern lifestyles, SOLÉA combines advanced UV protection with a breathable skin-first formula that feels invisible while delivering all-day comfort.
               </motion.p>
               
               <motion.div 
-                className="flex gap-4 flex-wrap mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 2.8 }}
+                className="flex gap-6 flex-wrap mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 3.1 }}
               >
                 <button className="cta-button">Shop Now</button>
                 <button className="cta-button secondary">Discover More</button>
               </motion.div>
               
               <motion.div 
-                className="flex gap-6 text-xs text-gray-400 uppercase tracking-widest flex-wrap"
+                className="flex gap-6 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] flex-wrap"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 3.1 }}
+                transition={{ duration: 1, delay: 3.4 }}
               >
-                <span>SPF 50+ Protection</span>
-                <span>•</span>
-                <span>Lightweight Formula</span>
-                <span>•</span>
+                <span>SPF 50+</span>
+                <span className="text-[#C9A227]">|</span>
+                <span>Lightweight</span>
+                <span className="text-[#C9A227]">|</span>
                 <span>Water Resistant</span>
-                <span>•</span>
+                <span className="text-[#C9A227]">|</span>
                 <span>Dermatologically Tested</span>
               </motion.div>
 
               <motion.div 
-                className="mt-12 text-sm uppercase tracking-widest text-gray-500 flex items-center gap-2"
+                className="mt-16 text-xs uppercase tracking-[0.3em] text-[#C9A227] flex items-center gap-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 3.5 }}
+                transition={{ duration: 1, delay: 3.8 }}
               >
                 <span>Scroll to explore</span>
-                <span className="animate-bounce">↓</span>
+                <span className="animate-bounce text-lg">↓</span>
               </motion.div>
             </div>
           </section>
@@ -166,24 +168,26 @@ function App() {
           </section>
 
           {/* SECTION 3 — WHY SOLÉA */}
-          <section className="section features min-h-screen py-20">
-            <h2 className="text-4xl md:text-5xl mb-12 text-center text-gradient font-serif">Designed for Everyday Skin</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
-              <div className="glass-panel p-8 text-center hover:-translate-y-2 transition-transform duration-300">
-                <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Invisible Finish</h3>
-                <p className="text-gray-400">Blends naturally into all skin tones with zero residue.</p>
-              </div>
-              <div className="glass-panel p-8 text-center hover:-translate-y-2 transition-transform duration-300">
-                <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Hydration Boost</h3>
-                <p className="text-gray-400">Infused with moisture-locking ingredients to maintain soft and healthy-looking skin.</p>
-              </div>
-              <div className="glass-panel p-8 text-center hover:-translate-y-2 transition-transform duration-300">
-                <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Lightweight Feel</h3>
-                <p className="text-gray-400">Breathable texture designed for daily wear under makeup or alone.</p>
-              </div>
-              <div className="glass-panel p-8 text-center hover:-translate-y-2 transition-transform duration-300">
-                <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Advanced UV Defense</h3>
-                <p className="text-gray-400">Broad-spectrum SPF 50+ protection against UVA and UVB exposure.</p>
+          <section className="section features min-h-screen py-20 relative">
+            <div className="w-full max-w-7xl mx-auto">
+              <h2 className="text-4xl md:text-5xl mb-16 text-center text-gradient font-serif">Designed for Everyday Skin</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="glass-panel text-center hover:-translate-y-2 transition-transform duration-300" style={{ padding: '3rem' }}>
+                  <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Invisible Finish</h3>
+                  <p className="text-gray-400 text-lg leading-relaxed">Blends naturally into all skin tones with zero residue.</p>
+                </div>
+                <div className="glass-panel text-center hover:-translate-y-2 transition-transform duration-300" style={{ padding: '3rem' }}>
+                  <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Hydration Boost</h3>
+                  <p className="text-gray-400 text-lg leading-relaxed">Infused with moisture-locking ingredients to maintain soft and healthy-looking skin.</p>
+                </div>
+                <div className="glass-panel text-center hover:-translate-y-2 transition-transform duration-300" style={{ padding: '3rem' }}>
+                  <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Lightweight Feel</h3>
+                  <p className="text-gray-400 text-lg leading-relaxed">Breathable texture designed for daily wear under makeup or alone.</p>
+                </div>
+                <div className="glass-panel text-center hover:-translate-y-2 transition-transform duration-300" style={{ padding: '3rem' }}>
+                  <h3 className="text-[#C9A227] text-2xl mb-4 font-serif">Advanced UV Defense</h3>
+                  <p className="text-gray-400 text-lg leading-relaxed">Broad-spectrum SPF 50+ protection against UVA and UVB exposure.</p>
+                </div>
               </div>
             </div>
           </section>
@@ -194,22 +198,24 @@ function App() {
               <h2 className="text-4xl md:text-5xl mb-10 text-gradient font-serif">Powered by Skin-Loving Ingredients</h2>
               
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl text-[#C9A227] font-serif mb-2">Hyaluronic Acid</h3>
-                  <p className="text-gray-400">Helps maintain deep hydration for smoother and healthier skin.</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl text-[#C9A227] font-serif mb-2">Vitamin E</h3>
-                  <p className="text-gray-400">Provides antioxidant support to protect against environmental stress.</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl text-[#C9A227] font-serif mb-2">Niacinamide</h3>
-                  <p className="text-gray-400">Helps improve skin texture and supports a balanced complexion.</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl text-[#C9A227] font-serif mb-2">Aloe Vera Extract</h3>
-                  <p className="text-gray-400">Soothes and refreshes skin exposed to heat and sunlight.</p>
-                </div>
+                {[
+                  { title: "Hyaluronic Acid", desc: "Helps maintain deep hydration for smoother and healthier skin." },
+                  { title: "Vitamin E", desc: "Provides antioxidant support to protect against environmental stress." },
+                  { title: "Niacinamide", desc: "Helps improve skin texture and supports a balanced complexion." },
+                  { title: "Aloe Vera Extract", desc: "Soothes and refreshes skin exposed to heat and sunlight." }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="group"
+                  >
+                    <h3 className="text-2xl text-[#C9A227] font-serif mb-2 group-hover:text-white transition-colors">{item.title}</h3>
+                    <p className="text-gray-400">{item.desc}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </section>
@@ -254,46 +260,47 @@ function App() {
             <div className="content glass-panel max-w-xl">
               <h2 className="text-4xl md:text-5xl mb-8 text-gradient font-serif">Simple Daily Protection</h2>
               <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="text-[#C9A227] text-2xl font-serif">01</div>
-                  <div>
-                    <h3 className="text-xl text-white mb-2 font-medium">Prep & Apply</h3>
-                    <p className="text-gray-400">Apply generously to clean skin 15 minutes before sun exposure.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="text-[#C9A227] text-2xl font-serif">02</div>
-                  <div>
-                    <h3 className="text-xl text-white mb-2 font-medium">Blend</h3>
-                    <p className="text-gray-400">Blend evenly across face and neck using gentle upward motions.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="text-[#C9A227] text-2xl font-serif">03</div>
-                  <div>
-                    <h3 className="text-xl text-white mb-2 font-medium">Maintain</h3>
-                    <p className="text-gray-400">Reapply every 2 hours for continuous protection, especially after swimming or sweating.</p>
-                  </div>
-                </div>
+                {[
+                  { num: "01", title: "Prep & Apply", desc: "Apply generously to clean skin 15 minutes before sun exposure." },
+                  { num: "02", title: "Blend", desc: "Blend evenly across face and neck using gentle upward motions." },
+                  { num: "03", title: "Maintain", desc: "Reapply every 2 hours for continuous protection, especially after swimming or sweating." }
+                ].map((step, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="flex gap-4 group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-[#C9A227] text-2xl font-serif group-hover:scale-110 transition-transform origin-left">{step.num}</div>
+                    <div>
+                      <h3 className="text-xl text-white mb-2 font-medium">{step.title}</h3>
+                      <p className="text-gray-400">{step.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </section>
 
           {/* SECTION 8 — CUSTOMER REVIEWS */}
-          <section className="section features min-h-[70vh]">
-            <h2 className="text-4xl md:text-5xl mb-12 text-center text-gradient font-serif">Loved by Everyday Skin</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
-              <div className="glass-panel p-8">
-                <div className="text-[#C9A227] text-2xl mb-4">★★★★★</div>
-                <p className="text-gray-300 italic mb-4">"The texture feels incredibly lightweight and leaves my skin glowing without feeling greasy."</p>
-              </div>
-              <div className="glass-panel p-8">
-                <div className="text-[#C9A227] text-2xl mb-4">★★★★★</div>
-                <p className="text-gray-300 italic mb-4">"Finally a sunscreen that works beautifully under makeup and doesn't leave a white cast."</p>
-              </div>
-              <div className="glass-panel p-8">
-                <div className="text-[#C9A227] text-2xl mb-4">★★★★★</div>
-                <p className="text-gray-300 italic mb-4">"It feels more like luxury skincare than sunscreen."</p>
+          <section className="section features min-h-[70vh] py-20 relative">
+            <div className="w-full max-w-7xl mx-auto">
+              <h2 className="text-4xl md:text-5xl mb-16 text-center text-gradient font-serif">Loved by Everyday Skin</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="glass-panel" style={{ padding: '3rem' }}>
+                  <div className="text-[#C9A227] text-2xl mb-6">★★★★★</div>
+                  <p className="text-gray-300 italic text-lg leading-relaxed">"The texture feels incredibly lightweight and leaves my skin glowing without feeling greasy."</p>
+                </div>
+                <div className="glass-panel" style={{ padding: '3rem' }}>
+                  <div className="text-[#C9A227] text-2xl mb-6">★★★★★</div>
+                  <p className="text-gray-300 italic text-lg leading-relaxed">"Finally a sunscreen that works beautifully under makeup and doesn't leave a white cast."</p>
+                </div>
+                <div className="glass-panel" style={{ padding: '3rem' }}>
+                  <div className="text-[#C9A227] text-2xl mb-6">★★★★★</div>
+                  <p className="text-gray-300 italic text-lg leading-relaxed">"It feels more like luxury skincare than sunscreen."</p>
+                </div>
               </div>
             </div>
           </section>
@@ -323,37 +330,51 @@ function App() {
           </section>
           
           {/* FOOTER */}
-          <footer className="w-full bg-[#050505] border-t border-white/10 pt-16 pb-8 px-10 z-20 relative">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
-              <div className="max-w-sm">
-                <h2 className="text-3xl font-serif text-white mb-4">SOLÉA</h2>
-                <p className="text-gray-400 text-sm leading-relaxed">
+          <footer id="main-footer" className="w-full bg-[#030303] border-t border-white/5 pt-32 pb-16 px-10 z-[100] relative overflow-hidden flex flex-col items-center">
+            {/* Massive background typography */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-hidden leading-none select-none pointer-events-none opacity-[0.03] flex items-center justify-center">
+              <h1 className="text-[28vw] font-serif font-bold text-white whitespace-nowrap">SOLÉA</h1>
+            </div>
+            
+            <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 mb-24 relative z-10">
+              <div className="max-w-md">
+                <h2 className="text-5xl font-serif text-white mb-8 tracking-wide">SOLÉA</h2>
+                <p className="text-gray-400 text-xl leading-relaxed font-serif italic mb-8">
                   SOLÉA creates modern skincare essentials designed to combine daily protection with luxurious simplicity.
                 </p>
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#C9A227] hover:border-[#C9A227] hover:text-black transition-all cursor-pointer text-white">
+                    <span className="text-sm tracking-wider">Ig</span>
+                  </div>
+                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#C9A227] hover:border-[#C9A227] hover:text-black transition-all cursor-pointer text-white">
+                    <span className="text-sm tracking-wider">X</span>
+                  </div>
+                </div>
               </div>
               
-              <div className="flex gap-16">
+              <div className="flex gap-24">
                 <div>
-                  <h3 className="text-white font-medium mb-4 uppercase tracking-widest text-sm">Explore</h3>
-                  <ul className="space-y-3 text-gray-400 text-sm">
+                  <h3 className="text-white font-medium mb-8 uppercase tracking-[0.2em] text-sm">Explore</h3>
+                  <ul className="space-y-5 text-gray-400 text-lg">
                     <li><a href="#" className="hover:text-[#C9A227] transition-colors">Shop</a></li>
                     <li><a href="#" className="hover:text-[#C9A227] transition-colors">Ingredients</a></li>
                     <li><a href="#" className="hover:text-[#C9A227] transition-colors">Reviews</a></li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-white font-medium mb-4 uppercase tracking-widest text-sm">Support</h3>
-                  <ul className="space-y-3 text-gray-400 text-sm">
+                  <h3 className="text-white font-medium mb-8 uppercase tracking-[0.2em] text-sm">Support</h3>
+                  <ul className="space-y-5 text-gray-400 text-lg">
                     <li><a href="#" className="hover:text-[#C9A227] transition-colors">Contact</a></li>
                     <li><a href="#" className="hover:text-[#C9A227] transition-colors">FAQs</a></li>
+                    <li><a href="#" className="hover:text-[#C9A227] transition-colors">Shipping Returns</a></li>
                   </ul>
                 </div>
               </div>
             </div>
             
-            <div className="max-w-6xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-              <p>&copy; {new Date().getFullYear()} SOLÉA. All rights reserved.</p>
-              <p className="text-[#C9A227] tracking-widest uppercase mt-4 md:mt-0">Protect Your Glow Every Day.</p>
+            <div className="w-full max-w-7xl mx-auto pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 relative z-10">
+              <p className="tracking-wider">&copy; {new Date().getFullYear()} SOLÉA. All rights reserved.</p>
+              <p className="text-[#C9A227] tracking-[0.2em] uppercase mt-4 md:mt-0 font-medium">Protect Your Glow Every Day.</p>
             </div>
           </footer>
 

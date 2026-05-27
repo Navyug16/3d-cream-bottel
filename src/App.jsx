@@ -325,19 +325,25 @@ function App() {
               <p className="text-xl text-gray-300 mb-10">
                 Experience lightweight SPF protection designed for modern skin and everyday comfort.
               </p>
-              <div className="flex gap-4 justify-center flex-wrap mb-10">
+              <div className="flex gap-6 justify-center flex-wrap mt-8 mb-16">
                 <button className="cta-button text-lg px-12 py-4">Buy Now</button>
                 <button className="cta-button secondary text-lg px-12 py-4">Explore Collection</button>
               </div>
               
-              <div className="flex gap-6 justify-center text-xs text-[#C9A227] uppercase tracking-widest flex-wrap">
-                <span>Cruelty Free</span>
-                <span>•</span>
-                <span>Paraben Free</span>
-                <span>•</span>
-                <span>Suitable for All Skin Types</span>
-                <span>•</span>
-                <span>Dermatologically Tested</span>
+              <div 
+                className="flex flex-col items-center gap-4 text-[10px] md:text-xs text-[#C9A227] uppercase tracking-[0.2em] mb-4"
+                style={{ marginTop: '4rem' }}
+              >
+                <div className="flex gap-6 flex-wrap justify-center">
+                  <span>Cruelty Free</span>
+                  <span>|</span>
+                  <span>Paraben Free</span>
+                  <span>|</span>
+                  <span>Suitable for All Skin Types</span>
+                </div>
+                <div className="mt-2">
+                  <span>Dermatologically Tested</span>
+                </div>
               </div>
             </div>
           </section>

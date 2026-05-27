@@ -52,10 +52,6 @@ export function Bottle(props) {
       let i = 0;
       obj.traverse((child) => {
         if (child.isMesh) {
-          // Typically in these OBJ files, the cap might be a separate mesh.
-          // If we can't distinguish, we just apply the dark body material, 
-          // or alternate based on index if we know the structure.
-          // Let's assume the first mesh is body, second is cap.
           if (i === 1 || child.name.toLowerCase().includes('cap')) {
             child.material = capMaterial;
           } else {
@@ -84,33 +80,39 @@ export function Bottle(props) {
       }
     });
 
-    // SECTION 2: Product Story - Moves Left, zooms slightly
+    // We have 8 main sections now + footer. We divide animation steps into roughly 8 parts.
+    
+    // SECTION 2: Product Story - Moves Left
     tl.to(group.current.position, { x: -3, y: 0, z: 2, duration: 1 }, 0);
     tl.to(group.current.rotation, { x: 0.2, y: Math.PI * 0.5, z: 0.1, duration: 1 }, 0);
     tl.to(group.current.scale, { x: 1.6, y: 1.6, z: 1.6, duration: 1 }, 0);
 
-    // SECTION 3: Features - Moves Center, lays flat
-    tl.to(group.current.position, { x: 0, y: -2, z: 1, duration: 1 }, 1);
-    tl.to(group.current.rotation, { x: Math.PI * 0.45, y: Math.PI, z: 0, duration: 1 }, 1);
-    tl.to(group.current.scale, { x: 1.4, y: 1.4, z: 1.4, duration: 1 }, 1);
+    // SECTION 3: Why Soléa - Features (Center, slightly laid back)
+    tl.to(group.current.position, { x: 0, y: -1, z: 1, duration: 1 }, 1);
+    tl.to(group.current.rotation, { x: Math.PI * 0.25, y: Math.PI * 1.5, z: 0, duration: 1 }, 1);
+    tl.to(group.current.scale, { x: 1.3, y: 1.3, z: 1.3, duration: 1 }, 1);
 
-    // SECTION 4: Technology Stack - Moves up out of view or stays minimal
-    tl.to(group.current.position, { x: 0, y: 4, z: -2, duration: 1 }, 2);
-    tl.to(group.current.rotation, { x: 0, y: Math.PI * 2, z: 0, duration: 1 }, 2);
+    // SECTION 4: Ingredients - Moves Right
+    tl.to(group.current.position, { x: 4, y: 0, z: 0, duration: 1 }, 2);
+    tl.to(group.current.rotation, { x: 0, y: Math.PI * 2.2, z: -0.1, duration: 1 }, 2);
     
-    // SECTION 5: Case Study - Appears on the Right
-    tl.to(group.current.position, { x: 4, y: 0, z: 0, duration: 1 }, 3);
-    tl.to(group.current.rotation, { x: 0.1, y: -Math.PI * 0.7, z: -0.1, duration: 1 }, 3);
-    tl.to(group.current.scale, { x: 1.3, y: 1.3, z: 1.3, duration: 1 }, 3);
+    // SECTION 5/6: Marquee & Experience - Moves Left
+    tl.to(group.current.position, { x: -3, y: -0.5, z: 1, duration: 1 }, 3);
+    tl.to(group.current.rotation, { x: 0.1, y: Math.PI * 0.7, z: 0.1, duration: 1 }, 3);
 
-    // SECTION 6: About Developer - Moves Left
-    tl.to(group.current.position, { x: -4, y: 0, z: 1, duration: 1 }, 4);
-    tl.to(group.current.rotation, { x: 0.2, y: Math.PI * 0.3, z: 0.2, duration: 1 }, 4);
+    // SECTION 7: How to Use - Moves Right
+    tl.to(group.current.position, { x: 3.5, y: 0, z: 2, duration: 1 }, 4);
+    tl.to(group.current.rotation, { x: 0.2, y: Math.PI * 1.8, z: -0.1, duration: 1 }, 4);
 
-    // SECTION 7: Final CTA - Epic Center zoom
-    tl.to(group.current.position, { x: 0, y: 1, z: 3.5, duration: 1 }, 5);
-    tl.to(group.current.rotation, { x: 0.1, y: Math.PI * 4, z: 0, duration: 1 }, 5);
-    tl.to(group.current.scale, { x: 1.8, y: 1.8, z: 1.8, duration: 1 }, 5);
+    // SECTION 8: Reviews - Moves Center, small
+    tl.to(group.current.position, { x: 0, y: 1.5, z: -2, duration: 1 }, 5);
+    tl.to(group.current.rotation, { x: 0.1, y: Math.PI * 2.5, z: 0, duration: 1 }, 5);
+    tl.to(group.current.scale, { x: 1.0, y: 1.0, z: 1.0, duration: 1 }, 5);
+
+    // SECTION 9: Final CTA - Epic Center zoom
+    tl.to(group.current.position, { x: 0, y: 1, z: 3.5, duration: 1 }, 6);
+    tl.to(group.current.rotation, { x: 0.1, y: Math.PI * 4, z: 0, duration: 1 }, 6);
+    tl.to(group.current.scale, { x: 1.8, y: 1.8, z: 1.8, duration: 1 }, 6);
 
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
